@@ -1,0 +1,12 @@
+LAB 5 NOTES: ACME Autoposy tool (same as SleuthKit but instead of CLI it provides GUI).
+
+*File signature analysis: mistmatch between file extensions in file name versus true extension in file header.
+-ACME Autopsy tool automatically can detect these mismatches; we need to analyze these.
+*each cookie can be saved in a separate file
+-can use cookies to try and determine if employee was looking for a job
+*.lnk is a shortcut file extension in windows.
+-it is simply a pointer to an actual file location
+*remember our hypothesis: employee exchanged information with another company in exchange for a job
+*email search will search for any files that contain email addresses
+-regular expression search automatically done (select IP or Email address, etc., the tool automatically has regular expressions it generates to search for to find all possible emails).
+*this ACME Autoposy tool is for analysis and does not include data acquisition functionality (so, you need to use FTK imager or dd in Linux to acquire an image file for analysis).

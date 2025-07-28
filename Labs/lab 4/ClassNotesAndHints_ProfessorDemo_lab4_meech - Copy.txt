@@ -1,0 +1,25 @@
+LAB 4 CLASS NOTES FROM DEMONSTRATION WTIH PROFESSOR
+
+-need to have fatDisk.dd file downloaded and saved to some folder
+
+-mmls fatDisk.dd --> will give information about the image file
+-MBR is very first sector of the disk, so we can run: dd if=fatDisk.dd of=MBR.dd count=1 
+	-above command will save first byte of fatDisk to a file called (that we create) MBR.dd
+	-notice last two bytes--> 55aa is the MBR record signature
+	-note count=1 means copy only 1 sector = 512 bytes.
+-also check VBR (remember first 32 sectors (0 to 31) = 1st track = reserved for MBR, so FAT file system starts at 32): dd if=fatDisk.dd skip=32 of=VBR.dd count=1 
+	-notice last two bytes are still 55aa = MBR signature
+-we can do hexedit MBR.dd or VBR.dd files to see and use a hex editor to make changes to the sector and save it (you can change any byte you want).
+-fsstat -o 32 fatDisk.dd --> will give details about the file file system of fatDisk.dd image file
+	-the disk file has 2 FAT tables(FAT 0 and FAT 1, each 246 sectors in size); remember there are 2 FAT tables because one of them is a backup.
+-fls -o 32 -rd fatDisk.dd --> -r means search recusrively -d means search for deleted (marked as deleted) files on fatDisk.dd
+	-now we can recover the files using: istat -o 32 fatDisk.dd 5 --> will tell you if the file location is overwritten yet after having been marked for deletion
+		-note above the 5 = file ID = the actual numerical value the file system uses because it needs to associate names (human readable) with actual numbers (for computer procesing).
+	-remember meta data = 32 bytes and includes file name; the first few bytes is used for the short file name and first byte=first letter of file name is over written with 0xe5=marked for deletion --> so you can often lose first letter of file name, but you can find it in another field in the meta data header under the long filename section
+	-time stamps of FAT file system can often be not very accurate.
+	-in FAT table also the location of the file will be NULLED
+	-but using istat we can still recover consecutive (not fragmented!) files because we know the first sector of the first block/sector which was marked with 0xe5=marked as deleted.
+- use icat-o 32 fatDisk.dd 5 >  pen.jpg to dump fileID=5 to a file called pen.jpg in order to recover the data via dumping it to a file.
+	-note above the 5 = file ID = the actual numerical value the file system uses because it needs to associate names (human readable) with actual numbers (for computer procesing).
+special note from professor: next lab (lab 5) we will use a GUI tool that allows us to analyze and recover files. But for this lab4, using the command line tool gives you a lot more flexibility including being able to look at and recover data at the byte level.
+

@@ -1,0 +1,20 @@
+*use Autopsy.
+*find out if one user shared/gave access permissions to another user.
+*create a new case; analyze the evidence image file provided in Canvas for this lab.
+*select all options; maybe uncheck GREP under keyword search because it may slow down the analysis (or I could keep it checked as part of analysis).
+*go to volume 2 on the disk image file
+*check meta data to see last modified date on the file in question (confidential file) under Mark's profile.
+	-check UID and GUID
+	-note the inode number (which contains all of the meta data except file name, remember for Linux EXT-4 file system)
+	-know number of blocks and which block number
+	-check permissions on the confidential file.
+*check meta data for the confidential directory to which the confidential file belongs.
+	-drwxrwxr-x     --> the refers to "directory" file.
+	-note file might be set properly, but if directory is not you still will not be able to read the file using the directory path to which the file belongs
+		-you need to set "others" group to r-x to allow users to read and execute directory in order for read access permission of a file in the directory to take effect.
+*do same analysis for Fred's profile as done with Mark's.
+	-mark and fred are in 2 different groups (as can be seen from GUID)
+*check to see if there are any softlinks to the confidential file.
+*check to see if a file has lrwxrwxrwx --> the "l" refers to "link" meaning the file is a softlink (shortcut) file.
+	-Fred likely access the confidential file using the shortcut then deleted the shortcut.
+*

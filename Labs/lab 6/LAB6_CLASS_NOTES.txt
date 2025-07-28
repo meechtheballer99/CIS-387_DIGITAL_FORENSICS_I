@@ -1,0 +1,38 @@
+**MAIN GOAL: HIGHLIGHT REG. EXPRESS MATCHES IN THE TEXT FILE THAT WE ARE SEARCHING THROUGH AND UPLOAD AS PART OF REPORT (OR TAKE SCREENSHOTS)**
+	-note: you do not have to distinguish highlights from different searches; just highlight all text that matches all Reg. Expre. searches required by the lab)
+
+*PERL programming language was the early days primary web development langauge that implemented GREP (global reg. express).
+-then all other langauges after began to used GREP and associated search tools; PHP replaced PERL as primary web development lang.
+*grep ...MZ filename.txt (means search for expressions starting with any 3 characters and ending with MZ in the file).
+	-by default, grep is case sensitive, so MZ will be searched as capital letters; you can do an option to make it anycase.
+*-E option is Extension version of GREP (PERL extension).
+*[0-9]{4} means any digits 0 to 9 in sets of 4
+	-so:  regular expression for credit card format GREP search = [0-9]{4}-[0-9]{4} -[0-9]{4} -[0-9]{4} (search for 4 groups of digits followed by a dash 4 times = 16 digits with dashes every 4 digits)
+	-[456][0-9]{3} == a group of 4 digits  where first digit is 4, 5, or 6.
+	-456[0-9]{1} == a group of 4 digits, first 3 digits is 456 (in that order) and last digit is any digit 0-9.
+*most our examples use -E (PERL extension) extension option of grep
+*in Autopsy we deselect all settings and only select "keyword" setting.
+- we will use keyword to find all patterns we want to find form the GREP-Keyword-List.txt file.
+*"there should be 90 matches; need to hihglight all the matches to embed in report."
+*writing grep expression for search that exactly matches what you are looking for can be very complex.
+*replace # with [0-9] because most langauges do not support using # sign for specifying digit search.
+*[a-zA-Z] (match any characters including upper and lower case).
+*\x0A = line feed (10 in decimal) (go to new line --> feed new line)
+*\x0D = carriage return (13 in decimal) (go to beginning position of the line feed)
+-for plaintext file in Windows, you need to do both operations in this sequence --> \x0A \x0D.
+-for plaintext file in Linux you just need \x0A (Linux does not recognize \x0D).
+*[0-9]{1,4} -->find where a pattern of digits 0-9 repeat 1 to 4 times.
+*THESE GREP WILL BE ON EXAM SO KNOW THESE COMMANDS AND UNDERSTAND WHAT THEY DO!
+*george [, ;]smith --> match any expression with "george" AND "(, OR ;)" AND "smith"
+*fred +rowson --> means search any expression that starts with "fred" , AND has any number of ' ' (empty space characters) AND ends with "rowson".
+	-freds+rowson -->means search any expression that starts with "fred" , AND has any number of 's' characters AND ends with "rowson".
+*remember: -i means expression is case insensitive (aka, algorithm will treat CAP == lowercase).
+	-you can do grep -i john, or grep john/i
+*ghb[^a-z] == (ghb)[^a-z]--> parethesis==quantifier does not matter unless you sepcify the group should repeat some pattern such as (ghb){3}.
+	-ghb[^a-z] means match any string with "ghb" that is NOT followed by a letter.
+* "^thestring$" --> means string should match from ^ to $
+*character? --> example t? means t is optional (match 0 or 1 times).
+*client side web apps usually written in javascript; serverside usually written in php.
+*use -E -n and -i options for all my searches
+	-E == use extension version    -n == display line numbers where expression match is found    -i == case insensitive.
+*[a-z]+ == essentially means any string because '+' operator means any number of repitions --> [a-z]+  means any number of repitions of characters a-z. 

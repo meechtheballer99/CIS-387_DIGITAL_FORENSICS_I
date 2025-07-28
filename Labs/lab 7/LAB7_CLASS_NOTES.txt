@@ -1,0 +1,15 @@
+*Hash analysis is a search for a file or type of file rather than searching inside the file
+*National Software Reference Library (NSRL)--> large library database with a table of known md5 128-bit hashes (signatures) of files/programs.
+	-we can download a library set so that we can use it in an investigation to do a hash analysis to see if bad files are on a disk image.
+	-database is primarily for Windows and contains mostly good system file hashes in the table so you can verify system files are not corrupt.
+	-they also have separate databases for Android and other operating systems.
+*wen creating Autoposy case: canvas contians the evidence files (disk images using encase formats; only need to load 1st segment and the rest of the segments will be loaded automatically).
+	-deselect all and only check photoRecover and hash Lookup options.
+	-go to global settings --> import hash set --> select he NSRL library file we downloaded --> mark it as a known file --> click OK
+	-create new hash set --> name it "bad pictures" --> mark it as notable --> select hash set path
+	-add new hashes to the hash set (provided by canvas or lab files) --> copy the 4 hashes and add them --> click OK
+	- click okay and finish, then when it is done analyzing go to analysis results
+	-one of the bad images is a 10 dollar bill, a wrecked car, another car, and explosion, another explosion, may find same file (duplicates) in different paths (multiple 10 dollar bills found).
+	-for this lab, we will not find matches with the NSLR library file, but we will find some that matches the hashes we added from the lab.
+	-side note: the image file is from 2001 and 2002.
+*understand the difference between hash analysis and file analysis.
