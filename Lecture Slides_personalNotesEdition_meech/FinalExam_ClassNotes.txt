@@ -1,0 +1,10 @@
+*know FAT 
+* NTFS file system and structure (regular and sparse files) cluster runs format.
+*know ENCASE tool
+*windows registry and other artifacts
+*know Linux file system EXT-4 (i nodes, etc.); know hardlink v softlink.
+*know 3 graphic file formats (bitmap, vector, metafiles).
+*know stenography (know the difference between it and cryptography)
+*know blockchain and crytpocurrency; know some basics about bitcoin.
+*review labs 5 and 6 (know hash analysis, regular expressions, keyword search, file carving, file signature analysis, etc.).
+*format: T/F, MC (half the points), short answer, fill in blanks.

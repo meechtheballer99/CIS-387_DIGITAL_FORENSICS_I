@@ -1,0 +1,27 @@
+*review all slides and labs
+*need to know years of digital crime laws passing
+*need to understand 4th amendment
+*difference between public and private sector investigations
+	-need to know why we need both
+*need to know the 3 formats of image files
+*know linux commands from lab 1 and 2 (and 3 and 4)
+*know the details of the dd command and its parameters (including how to do validation of images using hash --> MD5 and SHA sums)
+*know RAID and the differences between them.
+*know limitations of remote acquisitions
+*volume analysis: know where partitions are stored and orgranized (understand sector, cluster/block, cylinder) and how we address the data (example: CHS)
+*know what MBR and VBR is and where they are located.
+	-know what BIOS is and how it uses MBR to start the system
+	-understand the boot process
+*FAT file systems
+	-know structure of directories and FAT tables
+	-know how to locate corresponding cluster numbers (files or directory files)
+	-know how to locate each individual cluster of a file
+	-know what happens when you delete/create a file
+*sleuthkit commands
+
+	-review and understand the commands
+*10 pts T/F
+*30 mult choice questions (1 pt each)
+*short answer: 5 questions (20 pts total = 4 pts each)
+*midterm will be total 60 pts
+*75 minutes: WE WILL START EXAM ON TIME!
